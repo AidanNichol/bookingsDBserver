@@ -1,0 +1,16 @@
+{
+  "name": "bookingsDBserver",
+  "version": "1.0.0",
+  "description": "set up access to the DB on the server using pouchdb",
+  "main": "bookingsDBserver.js",
+  "repository": "https://github.com/AidanNichol/bookingsDBserver",
+  "author": "Aidan Nichol <aidan@nicholware.co.uk>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "logit": "https://github.com/AidanNichol/logit",
+    "pouchdb-adapter-http": "^7.0.0",
+    "pouchdb-authentication": "^1.1.3",
+    "pouchdb-core": "^7.0.0"
+  }
+}
