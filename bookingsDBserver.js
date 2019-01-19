@@ -5,26 +5,22 @@ var PouchDB = require('pouchdb-core').plugin(require('pouchdb-adapter-http'));
 
 PouchDB.plugin(require('pouchdb-authentication'));
 var db;
-const {
-  getSettings,
-  setSettings,
-  DbSettings,
-  mode
-} = require('StEdsSettings');
+const settings = require('StEdsSettings');
 const Logit = require('logit');
 var logit = Logit(__filename);
+console.log('logit enabled 2:', logit, logit.enabled);
+console.log('PouchDB creating', PouchDB);
 
-logit('PouchDB creating', PouchDB);
 
-logit('DbSettings', mode, DbSettings);
+const remoteCouch = settings.get('bookings.remote.production');
+console.log('DbSettings', remoteCouch);
 
-const remoteCouch = `http://${DbSettings.remotehost}:5984/${DbSettings.remotename}`;
 db = new PouchDB(remoteCouch, {});
 
 // sync();
-logit('PouchDB created', db);
+console.log('PouchDB created', db);
 db.info().then(function (info) {
-  logit('Bookings Info', info);
+  console.log('Bookings Info', info);
 });
 
 module.exports = db;
